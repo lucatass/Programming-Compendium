@@ -1,0 +1,21 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+
+<h1>Home</h1>
+
+<h2>Last adittion: {{ latest_addition.title_md }} created at {{ latest_addition.created_date_md }}</h2>
+
+<h2>Total additions: {{ total_additions }}</h2>
+
+<nav>
+    Add
+    <ul>
+        <li>Vocabulary</li>
+        <li>Syntax</li>
+        <li>Data objects</li>
+    </ul>
+</nav>
+<!-- eventually there will be a section with each languages percentage completed, the total vocabulary entries, a random info render and a random multiple choice quiz-->
+
+{% endblock %}

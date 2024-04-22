@@ -1,0 +1,78 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+
+<style>
+    
+    body {
+        font-family: 'Josefin Sans', sans-serif;
+        background-color: #1a1a1a;
+    }
+
+    h1 {
+        color: white;
+    }
+
+    .item {
+        display: flex; 
+        background-color: #156957;
+        border-radius: 5px; 
+        padding: 5px; 
+        margin-bottom: 5px; /* Margin between items */
+        align-items: flex-start;
+    }
+
+    .title {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        flex: 1; /* Allow title to grow to fill available space */
+    }
+
+    .definition-wrapper {
+        display: flex;
+        flex-grow: 3; /* Allow description to grow and fill remaining space */
+        background-color: #156957;
+    }
+
+    .definition {
+        background-color: #7fb9ad; /* Background color for description */
+        padding: 5px 5px;
+        border-radius: 5px;
+        white-space: pre-line;
+        margin-left: 5px; /* Add some space between title and description */
+        width: 100px; /* Set a specific width for the description */
+        flex-grow: 3;
+        line-height: 0.9w;
+        min-height: 50px;
+    }
+
+    .date {
+        font-size: 14px;
+        text-decoration: underline;
+        display: block;
+    }
+
+    .tags{
+       text-decoration: none !important;
+    }
+    
+</style>
+
+<h1>Vocabulary</h1>
+<ul>
+    {% for field in fields_html reversed %}
+        <li class="item">
+            <span class="title"><h2>{{ field.title_md }}</h2></span>
+            
+        <div class="definition-wrapper">
+            <div class="definition">{{ field.definition_md }}</div>
+        </div>
+
+        <span class="date">{{ field.created_date_md }}<br><a class="tags">{tags}</a></span>
+
+        
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

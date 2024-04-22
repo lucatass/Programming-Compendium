@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+
+    <title>Programming Compendium</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'home_url' %}">Home</a>
+                <!--something, not sure what right now-->
+            </li>
+            <li>
+                <a href="{% url 'languages_url' %}">Languages</a>
+                <!--each language shown with images-->
+            </li>
+            <li>
+                <a href="{% url 'vocabulary_url' %}">Vocabulary</a>
+                <!--a dictionary with lingo that means the same disregarding each language-->
+            </li>
+            <li>
+                <a href="{% url 'add_field_with_tags_url' %}">Create Tags</a>
+            </li>
+        </ul>
+    </nav>
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
+<style>
+nav {
+    background-color: #333; /* Navbar background color */
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox for horizontal layout */
+}
+
+nav ul li {
+    margin-right: 20px; /* Space between navbar items */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Link text color */
+    padding: 10px; /* Padding around link text */
+    display: inline-block; /* Ensure link is a block element */
+}
+
+nav ul li a:hover {
+    background-color: #f81515; /* Background color on hover */
+}
+
+</style>
+

@@ -1,0 +1,27 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<body>
+    <h1>Add Field with Tags</h1>
+    <form action="/create_field_with_tags/" method="post">
+        {% csrf_token %}
+        <label for="title_md">Title:</label><br>
+        <input type="text" id="title_md" name="title_md" required><br><br>
+        
+        <label for="definition_md">Definition:</label><br>
+        <textarea id="definition_md" name="definition_md" required></textarea><br><br>
+        
+        <label for="vocabulary_md">Is Vocabulary:</label>
+        <input type="checkbox" id="vocabulary_md" name="vocabulary_md"><br><br>
+        
+        <label for="pragmatic_programmer_md">Is Pragmatic Programmer:</label>
+        <input type="checkbox" id="pragmatic_programmer_md" name="pragmatic_programmer_md"><br><br>
+        
+        <label for="tags">Tags (comma-separated):</label><br>
+        <input type="text" id="tags" name="tags" required><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+{% endblock %}

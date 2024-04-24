@@ -1,2 +1,6 @@
 # Programming-compendium
-*Work in progres* Currtently this is only a test for personal use, but eventually i will make a compendium that could be useful for anyone allowing to add any kind of text data and many tags and other stuff that will be very usefull.
+*Work in progres* 
+Currently you can add a new Definition with a title, description and a date(automatically set).
+In the home page you can see how many definitions you made and the last definition title you added.
+
+In the future i want to add Tags and make sections for different programming languages

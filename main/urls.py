@@ -17,14 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from fields import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [ 
     path('admin/', admin.site.urls),
     path('', views.home_vw, name='home_url'),
-    path('field_create/', views.field_create_vw, name='field_create_url'),
+    #path('field_create/', views.field_create_vw, name='field_create_url'),
     path('field_render/', views.field_render_vw, name='field_render_url'),
     path('vocabulary/', views.vocabulary_render_vw, name='vocabulary_url'),
     path('languages/', views.languages_render_vw, name='languages_url'),
-    path( 'add_field_with_tags/' , views.add_field_with_tags_vw, name='add_field_with_tags_url')
+    #path( 'add_field_with_tags/' , views.add_field_with_tags_vw, name='add_field_with_tags_url'),
+    path('field_add/' , views.field_add_vw, name='field_add_url'),
+    path('tag_select/', views.tag_select_vw, name='tag_select_url'),
+    path('tag_definitions/<str:tag_name>/', views.tag_definitions_vw, name='tag_definitions_url'),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

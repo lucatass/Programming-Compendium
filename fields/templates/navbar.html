@@ -1,12 +1,16 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Programming Compendium</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap" rel="stylesheet">
 
-    <title>Programming Compendium</title>
+
 </head>
 <body>
     <nav>
@@ -16,15 +20,17 @@
                 <!--something, not sure what right now-->
             </li>
             <li>
+                <a href="{% url 'vocabulary_url' %}">Definitions</a>
+            </li>
+            <li>
+                <a href="{% url 'field_add_url' %}">Add definition</a>
+            </li> 
+            <li>
+                <a href="{% url 'tag_select_url' %}">Search by tag</a>
+            </li>
+            <li>
                 <a href="{% url 'languages_url' %}">Languages</a>
                 <!--each language shown with images-->
-            </li>
-            <li>
-                <a href="{% url 'vocabulary_url' %}">Vocabulary</a>
-                <!--a dictionary with lingo that means the same disregarding each language-->
-            </li>
-            <li>
-                <a href="{% url 'add_field_with_tags_url' %}">Create Tags</a>
             </li>
         </ul>
     </nav>
@@ -34,6 +40,16 @@
 </body>
 </html>
 <style>
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #1a1a1a;
+}
+
+h1, h2, P, li {
+    color: white;
+}
+
 nav {
     background-color: #333; /* Navbar background color */
 }
@@ -57,8 +73,101 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #f81515; /* Background color on hover */
+    background-color: #156957; /* Background color on hover */
 }
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #1a1a1a;
+}
+
+h1 {
+    color: white;
+}
+
+.item {
+    display: flex; 
+    background-color: #156957;
+    border-radius: 5px; 
+    padding: 5px; 
+    margin-bottom: 5px; /* Margin between items */
+    align-items: flex-start;
+    color: black;
+}
+
+.title {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    flex: 1; /* Allow title to grow to fill available space */
+}
+
+.definition-wrapper {
+    display: flex;
+    flex-grow: 3; /* Allow description to grow and fill remaining space */
+    background-color: #156957;
+}
+
+.definition {
+    background-color: #7fb9ad; /* Background color for description */
+    padding: 5px 5px;
+    border-radius: 5px;
+    white-space: pre-line;
+    margin-left: 5px; /* Add some space between title and description */
+    width: 100px; /* Set a specific width for the description */
+    flex-grow: 3;
+    line-height: 0.9w;
+    min-height: 50px;
+}
+
+.date {
+    font-size: 14px;
+    text-decoration: underline;
+    display: block;
+}
+
+.tags{
+    text-decoration: none !important;
+}
+
+/*tag select*/
+
+select {
+        background-color: #156957;
+        color: white;
+    }
+    select:hover {
+        color: black;
+
+    }
+
+    /* Style the options */
+    select option {
+        background-color: #7fb9ad; /* Background color */
+    }
+    button {
+    display: inline-block;
+    width: 100px; /* Set the width as needed */
+    margin-left: 3px; /* Add margin to separate from select element */
+    padding: 3px;
+    background-color: #156957; /* Green */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    transition: background-color 0.3s;
+    }
+    button:hover{
+        background-color: #1a816b;
+    }
+
+    form {
+        color: white;
+        font-size: larger;
+    }
+
 
 </style>
 

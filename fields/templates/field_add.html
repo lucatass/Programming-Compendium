@@ -1,0 +1,91 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+
+<style>
+    /* Style the form container */
+    .form-container {
+        background-color: #156957; /* Light gray background */
+        padding: 20px; /* Add some padding */
+        border-radius: 5px; /* Add rounded corners */
+    }
+
+    /* Style the input fields */
+    input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        box-sizing: border-box;
+        border: none; /* Remove the border */
+        border-radius: 4px;
+    }
+
+    /* Style the submit button */
+    button[type="submit"] {
+        background-color: #333d; /* Green background */
+        color: white; /* White text color */
+        padding: 10px 20px; /* Add some padding */
+        border: none; /* Remove the border */
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    /* Change the submit button color on hover */
+    button[type="submit"]:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+
+    /* Style the tag create button */
+    .tag-create-btn {
+        background-color: #333d; /* Green background */
+        color: white; /* White text color */
+        padding: 10px 20px; /* Add some padding */
+        border: none; /* Remove the border */
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px; /* Add space between the buttons */
+    }
+
+    /* Change the tag create button color on hover */
+    .tag-create-btn:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+
+    /* Style the tag create form */
+    .tag-create-form {
+        display: none; /* Hide the form by default */
+        margin-top: 10px; /* Add space between the form and the submit button */
+    }
+
+</style>
+
+<h1>Add Definition</h1>
+
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <button class="tag-create-btn" id="toggle-tag-form">Create Tag</button>
+
+    <form id="tag-create-form" class="tag-create-form" method="post">
+        {% csrf_token %}
+        <label for="tag_create">Tag Name:</label>
+        <input type="text" id="tag_create" name="tag_create">
+        <button type="submit">Create</button>
+    </form>
+</div>
+
+<script>
+    const toggleTagFormBtn = document.getElementById('toggle-tag-form');
+    const tagCreateForm = document.getElementById('tag-create-form');
+
+    toggleTagFormBtn.addEventListener('click', () => {
+        tagCreateForm.style.display = tagCreateForm.style.display === 'none' ? 'block' : 'none';
+    });
+</script>
+
+{% endblock %}
+
